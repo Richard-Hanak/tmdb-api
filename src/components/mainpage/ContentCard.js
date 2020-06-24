@@ -32,6 +32,7 @@ function ContentCard({ name, url, setMovieDetails }) {
           >
             <p>{movie.title}</p>
             <img
+            alt={movie.title}
               src={`https://image.tmdb.org/t/p/w185/${movie.poster_path}`}
             ></img>
           </li>
