@@ -7,13 +7,14 @@ function useDataFetching(dataSource) {
   const [results1, setResults1] = useState([]);
   const [results2, setResults2] = useState([]);
   const [error, setError] = useState("");
-
+  console.log(results1)
   useEffect(() => {
+ 
     async function fetchData() {
       try {
         const data = await fetch(dataSource);
         const json = await data.json();
-
+    
         if (json) {
           setLoading(false);
           setResults1(json.results.slice(0, 10));
