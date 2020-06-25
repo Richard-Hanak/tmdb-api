@@ -4,7 +4,6 @@ import 'shaka-player/dist/controls.css'
 
 function MovieDetails({ movieDetails, setMovieDetails }) {
   const [play, setPlay] = useState(false);
-  console.log(play)
 
   return (
     <div>
@@ -18,7 +17,7 @@ function MovieDetails({ movieDetails, setMovieDetails }) {
       <h2>{movieDetails.title}</h2>
       <p>{movieDetails.overview}</p>
       <p>Rating: {movieDetails.vote_average}</p>
-      <p>Year: {movieDetails.release_date.substring(0, 4)}</p>
+      <p>Year: {(movieDetails.release_date ? movieDetails.release_date : movieDetails.first_air_date).substring(0, 4)}</p>
       <img
         alt={movieDetails.title}
         src={`https://image.tmdb.org/t/p/w500/${movieDetails.poster_path}`}

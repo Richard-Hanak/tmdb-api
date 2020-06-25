@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,SAAS,CAAC;EACN,QAAQ,EAAE,QAAQ;EAClB,KAAK,EAAE,CAAC;EACR,MAAM,EAAE,KAAK;EACb,GAAG,EAAE,GAAG;EACR,SAAS,EAAE,kBAAkB;EAC7B,MAAM,EAAE,IAAI;EACZ,UAAU,EAAE,IAAI;CAKnB;;AAZD,AAQI,SARK,CAQL,GAAG,CAAC;EACA,MAAM,EAAE,IAAI;EACZ,WAAW,EAAE,GAAG;CACnB",
+    "sources": [
+        "ButtonNext.scss"
+    ],
+    "names": [],
+    "file": "ButtonNext.css"
+}

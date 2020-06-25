@@ -1,15 +1,12 @@
 import { useState, useEffect } from "react";
 
-//I had to split results in 2 parts as there's no way to adjust 
-//how many are sent on a request
+//useEffect runs everytime the datasource(url) changes
 function useDataFetching(dataSource) {
   const [loading, setLoading] = useState(true);
-  const [results1, setResults1] = useState([]);
-  const [results2, setResults2] = useState([]);
+  const [results, setResults] = useState([]);
   const [error, setError] = useState("");
-  console.log(results1)
+
   useEffect(() => {
- 
     async function fetchData() {
       try {
         const data = await fetch(dataSource);
@@ -17,8 +14,7 @@ function useDataFetching(dataSource) {
     
         if (json) {
           setLoading(false);
-          setResults1(json.results.slice(0, 10));
-          setResults2(json.results.slice(10));
+          setResults(json.results);
         }
       } catch (error) {
         setLoading(false);
@@ -34,8 +30,7 @@ function useDataFetching(dataSource) {
   return {
     error,
     loading,
-    results1,
-    results2,
+    results,
   };
 }
 

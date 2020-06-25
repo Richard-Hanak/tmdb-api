@@ -1,0 +1,33 @@
+.searchbar {
+  position: relative;
+  top: 20px;
+  width: 400px;
+  margin: 0 auto;
+  height: 35px;
+  margin-bottom: 60px;
+  border: 1px solid white;
+}
+
+.searchbar input {
+  height: 100%;
+  width: 100%;
+  padding-left: 6px;
+  font-size: 24px;
+  outline: none;
+  border: none;
+}
+
+.searchbar button {
+  position: absolute;
+  right: 0;
+  background-color: #aa9f09;
+  border: none;
+  padding: 0 7px;
+  padding-top: 5px;
+  padding-bottom: 3px;
+}
+
+.searchbar button img {
+  height: 22px;
+}
+/*# sourceMappingURL=SearchBar.css.map */
