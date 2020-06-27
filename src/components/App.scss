@@ -1,0 +1,22 @@
+@import "./mainpage/ContentCard/ContentCard.scss";
+@import "./mainpage/ContentCard/buttons/ButtonPrev.scss";
+@import "./mainpage/ContentCard/buttons/ButtonNext.scss";
+@import "./MovieDetails/MovieDetails.scss";
+@import "./mainpage/SearchBar/SearchBar.scss";
+@import "./ShakaPlayer/ShakaPlayer.scss";
+
+@font-face {
+    font-family: 'Roboto-regular';
+    src: url(../fonts/Roboto-Regular.ttf) format('truetype');
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: roboto-regular;
+}
+
+.App {
+    background: rgb(23, 30, 46);
+}   

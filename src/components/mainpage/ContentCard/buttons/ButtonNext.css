@@ -11,6 +11,14 @@
 
 .btn-next img {
   height: 46px;
-  margin-left: 8px;
+  margin-right: 12px;
+}
+
+@media (max-width: 817px) {
+  .btn-next {
+    position: relative;
+    -webkit-transform: translate(0, 100%);
+            transform: translate(0, 100%);
+  }
 }
 /*# sourceMappingURL=ButtonNext.css.map */

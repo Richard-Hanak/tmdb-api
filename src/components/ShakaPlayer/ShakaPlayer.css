@@ -1,0 +1,54 @@
+.video-container {
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+  width: calc((height / 9) * 16);
+  background: black;
+  font-size: 40px;
+}
+
+.video-container #video-button {
+  z-index: 10;
+  position: absolute;
+  top: 20px;
+  right: 50px;
+  border: none;
+  color: white;
+  font-size: 40px;
+  background: none;
+  padding: 10px 16px;
+  cursor: pointer;
+}
+
+.video-container #video-title {
+  color: white;
+  font-size: 40px;
+  width: 100%;
+  position: absolute;
+  line-height: 100px;
+  padding-left: 50px;
+  background: black;
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0)), color-stop(40%, rgba(0, 0, 0, 0.4)), to(black));
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 40%, black 100%);
+}
+
+.video-container .hide {
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition: translate(-100%);
+  transition: translate(-100%);
+  opacity: 0;
+}
+
+@media (max-width: 770px) {
+  .video-container #video-title {
+    font-size: 20px;
+    line-height: 20px;
+    padding-top: 40px;
+    padding-left: 10px;
+  }
+  .video-container #video-button {
+    right: 10px;
+    font-size: 30px;
+  }
+}
+/*# sourceMappingURL=ShakaPlayer.css.map */

@@ -1,29 +1,37 @@
 import React, { useState } from "react";
 import "./App.css";
-import ContentCard from "./ContentCard/ContentCard";
-import SearchBar from "./SearchBar/SearchBar";
-import MovieDetails from "../MovieDetails/MovieDetails";
+import ContentCard from "./mainpage/ContentCard/ContentCard";
+import SearchBar from "./mainpage/SearchBar/SearchBar";
+import MovieDetails from "./MovieDetails/MovieDetails";
+import ShakaPlayer from "./ShakaPlayer/ShakaPlayer";
 
 function App() {
+  const [play, setPlay] = useState(false);
   const [movieDetails, setMovieDetails] = useState();
   const [search, setSearch] = useState();
   // The api key would normally be requested from backend server for security.
-  const api_key = "95c816e6bdf08cc11c213d169108e6d4"; 
+  const api_key = "95c816e6bdf08cc11c213d169108e6d4";
 
+  if (play) {
+    return <ShakaPlayer setPlay={setPlay} movieDetails={movieDetails}/>;
+  }
   return (
     <div className="App">
-      <SearchBar setSearch={setSearch}/>
+      <SearchBar setSearch={setSearch} />
       {movieDetails ? (
         <MovieDetails
+          setPlay={setPlay}
           movieDetails={movieDetails}
           setMovieDetails={setMovieDetails}
         />
       ) : null}
-      {search ? <ContentCard
-        setMovieDetails={setMovieDetails}
-        CategoryName={"Search Results"}
-        url={`https://api.themoviedb.org/3/search/multi/?api_key=${api_key}&query=${search}`}
-      /> : null}
+      {search ? (
+        <ContentCard
+          setMovieDetails={setMovieDetails}
+          CategoryName={"Search Results"}
+          url={`https://api.themoviedb.org/3/search/multi/?api_key=${api_key}&query=${search}`}
+        />
+      ) : null}
       <ContentCard
         setMovieDetails={setMovieDetails}
         CategoryName={"Popular Movies"}

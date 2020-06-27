@@ -1,0 +1,138 @@
+.background-wrap {
+  position: fixed;
+  top: -100%;
+  width: 200vw;
+  height: 200vh;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.575);
+  z-index: 100;
+  .content-wrap {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 80%;
+    width: 1200px;
+    background: rgb(23, 30, 46);
+    color: white;
+    .movie-details {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 50px;
+      .title {
+        font-size: 50px;
+      }
+      .description {
+        margin: 20px 0;
+        font-size: 20px;
+        flex-grow: 5;
+      }
+      .util {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 26px;
+        width: 80%;
+      }
+
+      .play {
+        background-color: rgb(170, 159, 9);
+        color: white;
+        font-size: 30px;
+        border: none;
+        height: 60px;
+        width: 280px;
+      }
+    }
+    .img {
+      height: 100%;
+    }
+
+    .exit {
+      position: absolute;
+      z-index: 100;
+      top: 0;
+      right: 0;
+      font-size: 20px;
+      border: none;
+      color: white;
+      background-color: rgba(0, 0, 0, 0.425);
+      padding: 10px 16px;
+      cursor: pointer;
+    }
+  }
+}
+
+@media (max-width: 1330px) {
+  .background-wrap {
+    .content-wrap {
+      width: 90%;
+      .movie-details {
+        .description {
+          overflow-x: scroll;
+        }
+        .util {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 900px) {
+  .background-wrap {
+    .content-wrap {
+      width: 90%;
+      .movie-details {
+        .title {
+          font-size: 32px;
+        }
+        .description {
+          font-size: 18px;
+        }
+        .util {
+          font-size: 20px;
+        }
+        .play {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 770px) {
+  .background-wrap {
+    .content-wrap {
+      .movie-details {
+        .title {
+          font-size: 32px;
+        }
+        .description {
+          font-size: 18px;
+        }
+        .util {
+          font-size: 20px;
+        }
+        .play {
+          width: 100%;
+        }
+
+      }
+      .img {
+        display: none;
+      }
+    }
+  }
+}
+@media (max-width: 370px) {
+  .background-wrap {
+    .content-wrap {
+      height: 95%;
+      .movie-details {
+      padding: 18px;}
+    }
+  }
+}

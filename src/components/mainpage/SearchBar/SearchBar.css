@@ -30,4 +30,10 @@
 .searchbar button img {
   height: 22px;
 }
+
+@media (max-width: 817px) {
+  .searchbar {
+    width: 90%;
+  }
+}
 /*# sourceMappingURL=SearchBar.css.map */

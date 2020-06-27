@@ -1,28 +1,52 @@
-import React, { useState } from "react";
-import ShakaPlayer from "shaka-player-react";
-import 'shaka-player/dist/controls.css'
+import React, { useEffect } from "react";
+import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 
-function MovieDetails({ movieDetails, setMovieDetails }) {
-  const [play, setPlay] = useState(false);
+function MovieDetails({ movieDetails, setMovieDetails, setPlay }) {
+
+  const enableElement = document.getElementsByClassName("movie-details");
+  // disables scroll except for this modal element
+  useEffect(() => {
+    const disableScroll = () => {
+      disableBodyScroll(enableElement);
+    };
+    disableScroll();
+  }, [enableElement]);
 
   return (
-    <div>
-      {play ? (
-        <ShakaPlayer
-          autoPlay
-          src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-        />
-      ) : null}
-      <button onClick={() => setMovieDetails()}>X</button>
-      <h2>{movieDetails.title}</h2>
-      <p>{movieDetails.overview}</p>
-      <p>Rating: {movieDetails.vote_average}</p>
-      <p>Year: {(movieDetails.release_date ? movieDetails.release_date : movieDetails.first_air_date).substring(0, 4)}</p>
-      <img
-        alt={movieDetails.title}
-        src={`https://image.tmdb.org/t/p/w500/${movieDetails.poster_path}`}
-      ></img>
-      <button onClick={() => setPlay(true)}>PLAY</button>
+    <div className="background-wrap">
+      <div className="content-wrap">
+        <button
+          className="exit"
+          onClick={() => {
+            return setMovieDetails(), enableBodyScroll(enableElement);
+          }}
+        >
+          X
+        </button>
+        <div className="movie-details">
+          <h2 className="title">
+            {movieDetails.title || movieDetails.original_name}
+          </h2>
+          <p className="description">{movieDetails.overview}</p>
+          <div className="util">
+            <p>Rating: {movieDetails.vote_average}</p>
+            <p>
+              Release:{" "}
+              {(
+                movieDetails.release_date || movieDetails.first_air_date
+              ).substring(0, 4)}
+            </p>
+          </div>{" "}
+          <button className="play" onClick={() => setPlay(true)}>
+            PLAY
+          </button>
+        </div>
+        <img
+          className="img"
+          alt={movieDetails.title}
+          src={`https://image.tmdb.org/t/p/w500/${movieDetails.poster_path}`}
+        ></img>
+      </div>
     </div>
   );
 }
