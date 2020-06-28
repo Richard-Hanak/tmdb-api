@@ -8,7 +8,7 @@ function SearchBar({ setSearch }) {
     <form className="searchbar" onSubmit={(e) => e.preventDefault()}>
       <input onChange={(e) => setInput(e.target.value)}></input>
       <button onClick={() => setSearch(input)}>
-        <img src={search}></img>
+        <img src={search} alt="search"></img>
       </button>
     </form>
   );

@@ -34,7 +34,7 @@ function ButtonNext({
 
   return (
     <button onClick={handleClickNext} className="btn-next">
-      <img src={arrow}></img>
+      <img src={arrow} alt="load next"></img>
     </button>
   );
 }

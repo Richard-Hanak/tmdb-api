@@ -2,12 +2,6 @@ import React from "react";
 import "shaka-player/dist/controls.css";
 const shaka = require("shaka-player/dist/shaka-player.ui.js");
 
-//gets actual height of browser window and sets css property to keep the aspect ratio of stream
-window.addEventListener("resize", () => {
-  let vh = window.innerHeight * 0.01;
-  document.documentElement.style.setProperty("--vh", `${vh}px`);
-});
-
 class ShakaPlayer extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -37,6 +31,13 @@ class ShakaPlayer extends React.PureComponent {
   };
 
   componentDidMount = () => {
+    //gets actual height of browser window and sets css property to keep the aspect ratio of stream
+    this.getVH = () => {
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+    }
+    window.addEventListener("resize", this.getVH);
+
     this.resetTimer();
 
     var manifestUri =
@@ -74,6 +75,7 @@ class ShakaPlayer extends React.PureComponent {
   };
 
   componentWillUnmount = () => {
+    window.removeEventListener("resize", this.getVH);
     if (this.time) {
       clearTimeout(this.time);
       this.timerHandle = 0;

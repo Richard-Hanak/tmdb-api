@@ -22,7 +22,7 @@ function ButtonPrev({
 
   return (
     <button onClick={handleClickPrev} id="btn-disabled" className={enablePrevButton ? "btn-prev": null}>
-      <img src={arrow}></img>
+      <img src={arrow} alt="load previous"></img>
     </button>
   );
 }
