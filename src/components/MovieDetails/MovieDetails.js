@@ -18,7 +18,7 @@ function MovieDetails({ movieDetails, setMovieDetails, setPlay }) {
         <button
           className="exit"
           onClick={() => {
-            return (setMovieDetails(), enableBodyScroll(enableElement))
+            return (setMovieDetails(), enableBodyScroll(enableElement));
           }}
         >
           X
